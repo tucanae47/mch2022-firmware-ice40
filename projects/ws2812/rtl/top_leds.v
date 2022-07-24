@@ -1,7 +1,7 @@
 `default_nettype none
 
 module top (
-	input  clk,
+	input  clk_in,
     output reg [7:0] pmod
 );
 
@@ -13,7 +13,7 @@ module top (
 
     reg [18:0] count = 0;
     reg [1:0]  color_ind = 0;
-    always @(posedge clk) begin
+    always @(posedge clk_in) begin
         count <= count + 1;
         if (&count) begin
             if (led_num == NUM_LEDS) begin
@@ -34,6 +34,6 @@ module top (
     reg [7:0] led_num = 0;
     wire led_write = &count;
 
-    ws2812 #(.NUM_LEDS(NUM_LEDS)) ws2812_inst(.data(pmod[7]), .clk(clk), .reset(reset), .rgb_data(led_rgb_data), .led_num(led_num), .write(led_write));
+    ws2812 #(.NUM_LEDS(NUM_LEDS)) ws2812_inst(.data(pmod[7]), .clk(clk_in), .reset(reset), .rgb_data(led_rgb_data), .led_num(led_num), .write(led_write));
 
 endmodule
