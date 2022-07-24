@@ -8,7 +8,7 @@ module top (
     localparam NUM_LEDS = 8;
 
     reg reset = 1;
-    always @(posedge clk)
+    always @(posedge clk_in)
         reset <= 0;
 
     reg [18:0] count = 0;

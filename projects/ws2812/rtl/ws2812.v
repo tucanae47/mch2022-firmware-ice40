@@ -1,4 +1,4 @@
-`default_nettype none
+// `default_nettype none
 `timescale 1ns/1ns
 
 `ifdef FORMAL
@@ -76,7 +76,7 @@ module ws2812 (
 	    //  In order to infer BRAM, can't have a reset condition
 	    //  like this. But it will fail formal if you don't reset
 	    //  it.
-            `ifdef NO_MEM_RESET
+        `ifdef NO_MEM_RESET
 	    //  $display("Bypassing memory reset to allow BRAM");
 	    `else
             // initialise led data to 0
@@ -191,4 +191,4 @@ module ws2812 (
     */
     
 endmodule
-`default_nettype wire
+// `default_nettype wire
