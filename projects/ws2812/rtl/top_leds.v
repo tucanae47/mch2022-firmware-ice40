@@ -5,7 +5,7 @@ module top (
     output reg [7:0] pmod
 );
 
-    localparam NUM_LEDS = 8;
+    localparam NUM_LEDS = 40;
 
     reg reset = 1;
     always @(posedge clk_in)
